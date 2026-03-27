@@ -22,8 +22,9 @@ public class FileHandler {
 
     public void saveRecords(ArrayList<DisplayableRecord> records)
     {
-        /*Saves the ArrayList passed in to a file
-         with the file name specified by fileName using ObjectOutputStream*/
+        /*
+        Saves the ArrayList passed in to a file
+        with the file name specified by fileName using ObjectOutputStream*/
         try(FileWriter fileWriter = new FileWriter(fileName)) {
 
 
@@ -40,17 +41,19 @@ public class FileHandler {
         and handled in this method.
          In the case of exceptions, an error message should be displayed and null returned.
         * */
+        ArrayList<DisplayableRecord> records = new ArrayList<>();
         Charset charset = StandardCharsets.US_ASCII;
         Path path = Paths.get(fileName);
+
         try(BufferedReader reader = Files.newBufferedReader(path, charset))
         {
+            String response = reader.readLine();
 
         } catch (Exception e) {
             System.out.println("Error reading " + fileName);
-            return null
+            return null;
         }
 
-        ArrayList<DisplayableRecord> records = new ArrayList<>();
 
         return records;
     }
