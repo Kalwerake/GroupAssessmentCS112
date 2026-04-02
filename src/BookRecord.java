@@ -23,16 +23,26 @@ public class BookRecord implements DisplayableRecord {
         this.year = year;
         generateID();
     }
-@Override
-public void generateID() {
+    @Override
+    public void generateID() {
         String bookIDtitle = title.length() >= 3 ? title.substring(0, 3) : title;
         String bookIDauthor = author.length() >= 3 ? author.substring(0, 3) : author;
 
-        String bookID = bookIDtitle + year + bookIDauthor;
+        setId(bookIDtitle + year + bookIDauthor);
+
     }
     @Override
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return id + " - " + title + " by " + author + " (" + year + ")";
     }
 
     @Override
