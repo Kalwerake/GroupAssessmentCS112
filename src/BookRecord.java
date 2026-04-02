@@ -41,6 +41,11 @@ public class BookRecord implements DisplayableRecord {
     }
 
     @Override
+    public String toString() {
+        return id + " - " + title + " by " + author + " (" + year + ")";
+    }
+
+    @Override
     public void getDisplayText() {
         System.out.println(toString());
     }
